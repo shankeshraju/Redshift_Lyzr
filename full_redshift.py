@@ -85,7 +85,7 @@ if analysis_query:
     st.write(queries)
 if visual_query:
     shutil.rmtree('./generated_plots')
-    visualization = data_analyzr.visualizations(user_input=" Your Analysis Query")
+    visualization = data_analyzr.visualizations(user_input=user_input)
     folder = "./generated_plots"
     for images in os.listdir(folder):
         if images.endswith('.png'):
