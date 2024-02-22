@@ -63,8 +63,8 @@ with col2:
     col1, col2 = st.columns(2)
     with col1:
         user_query = st.button('Text Query')
-    with col2:
-        visual_query = st.button('Visualization Query')
+    # with col2:
+    #     visual_query = st.button('Visualization Query')
 
 try:
     data_analyzr = DataAnalyzr(df=st.session_state.dataframe, api_key=st.session_state.api_key)
@@ -83,13 +83,13 @@ if data_desc:
 if analysis_query:
     queries = data_analyzr.ai_queries_df()
     st.write(queries)
-if visual_query:
-    shutil.rmtree('./generated_plots')
-    visualization = data_analyzr.visualizations(user_input=user_input)
-    folder = "./generated_plots"
-    for images in os.listdir(folder):
-        if images.endswith('.png'):
-            st.image(f"./generated_plots/{images}")
+# if visual_query:
+#     shutil.rmtree('./generated_plots')
+#     visualization = data_analyzr.visualizations(user_input=user_input)
+#     folder = "./generated_plots"
+#     for images in os.listdir(folder):
+#         if images.endswith('.png'):
+#             st.image(f"./generated_plots/{images}")
     
 
 
