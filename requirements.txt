@@ -3,3 +3,4 @@ streamlit_extras
 llmsherpa
 redshift_connector
 streamlit
+matplotlib
