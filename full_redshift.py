@@ -75,7 +75,7 @@ try:
     data_analyzr = DataAnalyzr(df=st.session_state.dataframe, api_key=st.session_state.api_key)
 except:
     print('load credentials')
-
+st.divider()
 if user_query:
     analysis = data_analyzr.analysis_insights(user_input=user_input)
     st.code(analysis)
@@ -93,7 +93,6 @@ if tasks_query:
     st.code(tasks)
 if recomm_insights:
     recommendations = data_analyzr.recommendations(user_input=user_input)
-    output = json.loads(recommendations)
-    st.code(output, language="JSON")
+    st.json(recommendations)
 
   
