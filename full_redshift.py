@@ -59,6 +59,7 @@ with col2:
     # analysis_query = mygrid.button('Exploratory Analysis')
     # analysis_recom = mygrid.button('Recommended Analysis')
     data_desc = st.button('Data Description')
+    analysis_recom = st.button('Recommendation')
     analysis_query = st.button('Exploratory Analysis')
 
     st.subheader('User queries')
@@ -66,7 +67,6 @@ with col2:
 
     user_query = st.button('Text Query')
     tasks_query = st.button('Create Tasks')
-    analysis_recom = st.button('Recommendation')
     recomm_insights = st.button('Analysis and Optimize')
 
 
