@@ -22,13 +22,13 @@ with st.sidebar:
     col3, col4 = st.columns(2)
     col5, col6 = st.columns(2)
     with col1:
-        username = st.text_input('Enter the username')
+        username = st.text_input('Enter the username', label_visibility="hidden")
     with col2:
         password = st.text_input('Enter the password', type="password")
     with col3:
-        db_name = st.text_input('database name')
+        db_name = st.text_input('database name', label_visibility="visible")
     with col4:
-        schema = st.text_input('Enter the schema')
+        schema = st.text_input(grey:['Enter the schema'])
     with col5:
         table_name = st.text_input('Enter the table name')
     with col6:
