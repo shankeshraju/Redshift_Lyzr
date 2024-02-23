@@ -91,7 +91,7 @@ if analysis_query:
     st.code(queries)
 if tasks_query:
     tasks = data_analyzr.tasks(user_input=user_input)
-    st.code(tasks)
+    st.text(tasks)
 if recomm_insights:
     recommendations = data_analyzr.recommendations(user_input=user_input)
     st.code(recommendations)
