@@ -22,17 +22,17 @@ with st.sidebar:
     col3, col4 = st.columns(2)
     col5, col6 = st.columns(2)
     with col1:
-        username = st.text_input('Enter the username')
+        username = st.text_input('Username')
     with col2:
-        password = st.text_input('Enter the password', type="password")
+        password = st.text_input('Password', type="password")
     with col3:
-        db_name = st.text_input('database name')
+        db_name = st.text_input('Database')
     with col4:
-        schema = st.text_input('Enter the schema')
+        schema = st.text_input('Schema', label_visibility='visible')
     with col5:
-        table_name = st.text_input('Enter the table name')
+        table_name = st.text_input('Table', label_visibility='collapsed')
     with col6:
-        st.session_state.api_key = st.text_input('OpenAI API Key', type='password')
+        st.session_state.api_key = st.text_input('OpenAI API', type='password')
     submitBtn = st.button('Proceed')
 
 if submitBtn:
