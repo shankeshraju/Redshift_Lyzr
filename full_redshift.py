@@ -109,7 +109,7 @@ if visual_query:
     except:
         print('no plots generated')
     visualization = data_analyzr.visualizations(user_input=user_input)
-    st.code(user_input)
+    st.markdown(user_input)
     folder = "./generated_plots"
     for images in os.listdir(folder):
         if images.endswith('.png'):
