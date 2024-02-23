@@ -64,7 +64,7 @@ with col2:
     analysis_query = st.button('Exploratory Analysis')
 
     st.divider()
-    st.markdown('User queries')
+    st.caption('User Queries')
     user_input = st.text_input('Enter the query?')
 
     user_query = st.button('Text Query')
@@ -95,8 +95,6 @@ if tasks_query:
 if recomm_insights:
     recommendations = data_analyzr.recommendations(user_input=user_input)
     st.text(recommendations)
-    st.latex(recommendations)
-    st.code(recommendations)
-    st.caption(recommendations)
+
 
   
