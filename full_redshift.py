@@ -89,11 +89,11 @@ if analysis_recom:
     st.code(analysis_recommendation)
 if data_desc:
     description = data_analyzr.dataset_description()
-    st.code(user_input)
+    st.markdown("Data Description)
     st.code(description)
 if analysis_query:
     queries = data_analyzr.ai_queries_df()
-    st.code(user_input)
+    st.markdown("Exploratory Analysis)
     st.code(queries)
 if tasks_query:
     tasks = data_analyzr.tasks(user_input=user_input)
