@@ -92,6 +92,6 @@ if tasks_query:
     st.code(tasks)
 if recomm_insights:
     recommendations = data_analyzr.recommendations(user_input=user_input)
-    st.code(recommendations, language='JSON')
+    st.code(recommendations[0])
 
   
