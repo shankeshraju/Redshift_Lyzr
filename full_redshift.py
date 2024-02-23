@@ -80,21 +80,27 @@ except:
 st.divider()
 if user_query:
     analysis = data_analyzr.analysis_insights(user_input=user_input)
+    st.code(user_input)
     st.code(analysis)
 if analysis_recom:
     analysis_recommendation = data_analyzr.analysis_recommendation(user_input)
+    st.code(user_input)
     st.code(analysis_recommendation)
 if data_desc:
     description = data_analyzr.dataset_description()
+    st.code(user_input)
     st.code(description)
 if analysis_query:
     queries = data_analyzr.ai_queries_df()
+    st.code(user_input)
     st.code(queries)
 if tasks_query:
     tasks = data_analyzr.tasks(user_input=user_input)
+    st.code(user_input)
     st.text(tasks)
 if recomm_insights:
     recommendations = data_analyzr.recommendations(user_input=user_input)
+    st.code(user_input)
     st.code(recommendations)
 
 
