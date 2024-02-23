@@ -16,7 +16,7 @@ if 'api_key' not in st.session_state:
     st.session_state.api_key = None
 
 with st.sidebar:
-    st.title('Enter the credentials')
+    st.caption('Enter the credentials')
     host_url = st.text_input('Enter the RedShift host URL')
     col1, col2 = st.columns(2)
     col3, col4 = st.columns(2)
