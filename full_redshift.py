@@ -79,7 +79,7 @@ if user_query:
     analysis = data_analyzr.analysis_insights(user_input=user_input)
     st.code(analysis)
 if analysis_recom:
-    analysis_recommendation = data_analyzr.analysis_recommendation(user_input=user_input: Optional[str] = None))
+    analysis_recommendation = data_analyzr.analysis_recommendation(user_input=user_input: Optional[str] = None)
     st.code(analysis_recommendation)
 if data_desc:
     description = data_analyzr.dataset_description()
