@@ -34,6 +34,7 @@ with st.sidebar:
     with col6:
         st.session_state.api_key = st.text_input('OpenAI API', type='password')
     submitBtn = st.button('Proceed')
+    st.caption('@By_ShankeshRajuMS')
 
 if submitBtn:
     st.session_state.dataframe = DataConnector().fetch_dataframe_from_redshift(
