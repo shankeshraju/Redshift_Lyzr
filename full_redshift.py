@@ -77,21 +77,21 @@ except:
 
 if user_query:
     analysis = data_analyzr.analysis_insights(user_input=user_input)
-    st.write(analysis)
+    st.code(analysis)
 if analysis_recom:
     analysis_recommendation = data_analyzr.analysis_recommendation(user_input=Optional(user_input))
-    st.write(analysis_recommendation)
+    st.code(analysis_recommendation)
 if data_desc:
     description = data_analyzr.dataset_description()
-    st.write(description)
+    st.code(description)
 if analysis_query:
     queries = data_analyzr.ai_queries_df()
     st.code(queries)
 if tasks_query:
     tasks = data_analyzr.tasks(user_input=user_input)
-    st.write(tasks)
+    st.code(tasks)
 if recomm_insights:
     recommendations = data_analyzr.recommendations(user_input=user_input)
-    st.write(recommendations)
+    st.code(recommendations)
 
   
