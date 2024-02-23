@@ -17,7 +17,7 @@ if 'api_key' not in st.session_state:
 
 with st.sidebar:
     st.caption('Enter the credentials')
-    host_url = st.text_input('Enter the RedShift host URL')
+    host_url = st.text_input('RedShift URL')
     col1, col2 = st.columns(2)
     col3, col4 = st.columns(2)
     col5, col6 = st.columns(2)
@@ -28,9 +28,9 @@ with st.sidebar:
     with col3:
         db_name = st.text_input('Database')
     with col4:
-        schema = st.text_input('Schema', label_visibility='visible')
+        schema = st.text_input('Schema')
     with col5:
-        table_name = st.text_input('Table', label_visibility='collapsed')
+        table_name = st.text_input('Table')
     with col6:
         st.session_state.api_key = st.text_input('OpenAI API', type='password')
     submitBtn = st.button('Proceed')
