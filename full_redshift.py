@@ -70,6 +70,7 @@ with col2:
 
     user_query = st.button('Text Query')
     tasks_query = st.button('Create Tasks')
+    visual_query = st.button('Visualization Query')
     recomm_insights = st.button('Analysis and Optimize')
 
 
@@ -102,6 +103,17 @@ if recomm_insights:
     recommendations = data_analyzr.recommendations(user_input=user_input)
     st.code(user_input)
     st.code(recommendations)
+if visual_query:
+    try:
+        shutil.rmtree('./generated_plots')
+    except:
+        print('no plots generated')
+    visualization = data_analyzr.visualizations(user_input=user_input)
+    st.code(user_input)
+    folder = "./generated_plots"
+    for images in os.listdir(folder):
+        if images.endswith('.png'):
+            st.image(f"./generated_plots/{images}")
 
 
   
