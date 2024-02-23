@@ -53,7 +53,7 @@ with col1:
         st.write('Enter credentials to view the database')
 
 with col2:
-    st.subheader('Suggestions')
+    st.caption('Suggestions')
 
     # mygrid = grid(3, 1, 2, vertical_align="bottom")
     # data_desc = mygrid.button('Data Description')
@@ -63,7 +63,8 @@ with col2:
     analysis_recom = st.button('Recommendation')
     analysis_query = st.button('Exploratory Analysis')
 
-    st.subheader('User queries')
+    st.divider()
+    st.markdown('User queries')
     user_input = st.text_input('Enter the query?')
 
     user_query = st.button('Text Query')
