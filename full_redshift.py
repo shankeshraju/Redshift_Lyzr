@@ -1,19 +1,21 @@
 from lyzr import DataConnector, DataAnalyzr
 from streamlit_extras.grid import grid
-import streamlit as st
 from dotenv import load_dotenv
+from typing import Optional
+import streamlit as st
 import shutil
 import os
 
 
 st.set_page_config(layout='wide')
-st.title('AWS RedShift Analyser with Lyzr')
+st.subheader('AWS RedShift Analyser with Lyzr')
 if 'dataframe' not in st.session_state:
     st.session_state.dataframe = None
 if 'api_key' not in st.session_state:
     st.session_state.api_key = None
 
 with st.sidebar:
+    st.title('Enter the credentials')
     host_url = st.text_input('Enter the RedShift host URL')
     col1, col2 = st.columns(2)
     col3, col4 = st.columns(2)
@@ -42,7 +44,7 @@ if submitBtn:
         table=table_name,  # Replace with the name of the table to fetch data from
         port=5439,  # Replace with the appropriate port number for your Redshift Database
     )
-col1, col2 = st.columns([0.7, 0.3], gap='large')
+col1, col2 = st.columns([0.8, 0.2], gap='large')
 with col1:
     if st.session_state.dataframe is not None:
         st.dataframe(st.session_state.dataframe)
@@ -52,19 +54,21 @@ with col1:
 with col2:
     st.subheader('Suggestions')
 
-    mygrid = grid(3, 1, 2, vertical_align="center")
-    data_desc = mygrid.button('Data Description')
-    analysis_query = mygrid.button('Exploratory Analysis')
-    analysis_recom = mygrid.button('Recommended Analysis')
+    # mygrid = grid(3, 1, 2, vertical_align="bottom")
+    # data_desc = mygrid.button('Data Description')
+    # analysis_query = mygrid.button('Exploratory Analysis')
+    # analysis_recom = mygrid.button('Recommended Analysis')
+    data_desc = st.button('Data Description')
+    analysis_query = st.button('Exploratory Analysis')
 
     st.subheader('User queries')
     user_input = st.text_input('Enter the query?')
 
-    col1, col2 = st.columns(2)
-    with col1:
-        user_query = st.button('Text Query')
-    # with col2:
-    #     visual_query = st.button('Visualization Query')
+    user_query = st.button('Text Query')
+    tasks_query = st.button('Create Tasks')
+    analysis_recom = st.button('Recommendation')
+    recomm_insights = st.button('Analysis and Optimize')
+
 
 try:
     data_analyzr = DataAnalyzr(df=st.session_state.dataframe, api_key=st.session_state.api_key)
@@ -75,28 +79,19 @@ if user_query:
     analysis = data_analyzr.analysis_insights(user_input=user_input)
     st.write(analysis)
 if analysis_recom:
-    analysis_recommendation = data_analyzr.analysis_recommendation()
+    analysis_recommendation = data_analyzr.analysis_recommendation(user_input=Optional(user_input))
     st.write(analysis_recommendation)
 if data_desc:
     description = data_analyzr.dataset_description()
     st.write(description)
 if analysis_query:
     queries = data_analyzr.ai_queries_df()
-    st.write(queries)
-# if visual_query:
-#     shutil.rmtree('./generated_plots')
-#     visualization = data_analyzr.visualizations(user_input=user_input)
-#     folder = "./generated_plots"
-#     for images in os.listdir(folder):
-#         if images.endswith('.png'):
-#             st.image(f"./generated_plots/{images}")
-    
+    st.code(queries)
+if tasks_query:
+    tasks = data_analyzr.tasks(user_input=user_input)
+    st.write(tasks)
+if recomm_insights:
+    recommendations = data_analyzr.recommendations(user_input=user_input)
+    st.write(recommendations)
 
-
-
-    
-    
-    
-    
-    
-    
+  
