@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from typing import Optional
 import streamlit as st
 import shutil
+import json
 import os
 
 
@@ -92,6 +93,7 @@ if tasks_query:
     st.code(tasks)
 if recomm_insights:
     recommendations = data_analyzr.recommendations(user_input=user_input)
-    st.code(recommendations[0])
+    output = json.loads(recommendations)
+    st.code(output, language="JSON")
 
   
